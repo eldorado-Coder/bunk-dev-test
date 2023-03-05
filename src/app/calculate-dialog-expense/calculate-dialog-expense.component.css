@@ -1,0 +1,14 @@
+.d-flex {
+    display: flex;
+}
+
+.d-flex table {
+    margin-left: 20px;
+    width: 100%;
+    box-shadow: none;
+}
+
+.d-flex-invert {
+    display: flex;
+    justify-content: end;
+}

@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Payouts</h1>
+<div mat-dialog-content>
+  <p>Total: {{data.result.total}}</p>
+  <p>EqualShare: {{data.result.equalShare}}</p>
+  <div class="d-flex">
+    <p>Payouts: </p>
+    <table mat-table [dataSource]="data.result.payouts" class="mat-elevation-z8">
+      <ng-container matColumnDef="owes">
+        <th mat-header-cell *matHeaderCellDef>Owes</th>
+        <td mat-cell *matCellDef="let element">{{ element.owes }}</td>
+      </ng-container>
+      <ng-container matColumnDef="owed">
+        <th mat-header-cell *matHeaderCellDef>Owed</th>
+        <td mat-cell *matCellDef="let element">{{ element.owed }}</td>
+      </ng-container>
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>  
+  </div>
+</div>
+<div mat-dialog-actions class="d-flex-invert">
+  <button mat-button mat-dialog-close>Close</button>
+</div>

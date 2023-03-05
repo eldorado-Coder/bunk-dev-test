@@ -1,0 +1,10 @@
+<div id="delete-dialog" >
+  <h1 mat-dialog-title>Delete Item</h1>
+  <div mat-dialog-content>
+    Would you like to delete ?
+  </div>
+  <div mat-dialog-actions>
+    <button loadingType="'button'" [csLoading]="loading" id="btn-confirm-delete" mat-button (click)="confirmDelete()" cdkFocusInitial>Yes</button>
+    <button id="btn-cancel-delete" mat-button mat-dialog-close>No</button>
+  </div>
+</div>

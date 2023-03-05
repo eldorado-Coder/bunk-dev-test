@@ -1,0 +1,24 @@
+<div class="container add-expense-container">
+  <div>
+    <form [formGroup]="addExpenseForm" >
+      <mat-card>
+        <h3 style="text-align: center">Add New Expenses Data</h3>
+        <div>
+          <mat-form-field appearance="outline" class="form-element">
+            <mat-label>Name</mat-label>
+            <input id="input-name" formControlName="name" matInput [(ngModel)] ="expenseForm.name"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="form-element">
+            <mat-label>amount</mat-label>
+            <input id="input-amount" matInput formControlName="amount" type="number" [(ngModel)] ="expenseForm.amount"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <button id="btn-create" mat-raised-button color="primary" (click)="create()">Create</button>
+        </div>
+      </mat-card>
+    </form>
+  </div>
+</div>

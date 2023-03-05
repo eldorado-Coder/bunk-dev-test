@@ -1,0 +1,50 @@
+<div class="container allexpenses-container add-expense-header">
+  <a id="btn-add" mat-raised-button color="primary" routerLink="/add-expense">Add</a>
+  <a id="btn-settleup" mat-raised-button color="primary" (click)="openCalcModal()">Settle Up</a>
+</div>
+<div class="container allexpenses-container">
+  <table mat-table [dataSource]="allExpensesSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef>Expense</th>
+      <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/edit-expense', element.id]"
+          ><mat-icon
+            color="primary"
+            id="btn-edit"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="edit"
+          >
+          </mat-icon
+        ></a>
+        <mat-icon
+          (click)="openDeleteModal(element.id)"
+          aria-hidden="false"
+          id="btn-delete"
+          style="cursor: pointer;"
+          aria-label="Example delete icon"
+          fontIcon="delete"
+        >
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
