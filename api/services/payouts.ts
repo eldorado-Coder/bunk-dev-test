@@ -6,8 +6,8 @@ interface Expense {
     id: string;
     name: string;
     amount: number;
-    owes: string;
-    owed: string;
+    // owes: string;
+    // owed: string;
 }
 const db = new Database('./data');
 const Expenses = db.table<Expense>('expenses');
@@ -22,10 +22,15 @@ interface IPayout {
     amount: number;
 }
 
-function calc(expenses: Expense[]) {
+/**
+ * 
+ * @param Expense[]
+ * @returns
+ */
+export function calc(expenses: Expense[]) {
     let totalAmount: number = 0;
     const hashMap: IHashMap = {};
-
+    console.log('expenses ---- ', expenses)
     expenses.forEach((element) => {
         totalAmount += element.amount;
         if (hashMap[element.name] === undefined) {

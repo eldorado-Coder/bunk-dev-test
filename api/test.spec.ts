@@ -1,8 +1,11 @@
 const request = require('supertest');
 const baseURL = 'http://localhost:3000';
+import {expect} from '@jest/globals';
+import { calc } from './services/payouts';
 
 describe('Expense test', () => {
     let expense = {
+        id: '',
         name: 'Momin',
         amount: 11.5,
     };
@@ -26,7 +29,11 @@ describe('Expense test', () => {
     });
 
     it('should calculate payout', async () => {
+        const allList  = await request(baseURL).get('/expenses');
+        let expectedPayouts = calc(allList.body);
         const response = await request(baseURL).post('/payouts');
         expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual(expectedPayouts);
+
     });
 });

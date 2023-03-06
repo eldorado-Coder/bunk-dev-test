@@ -27,12 +27,12 @@
       ],
       "types": [
         "node",
-        "mocha",
-        "chai"
+        "jest"
       ]
     },
     "exclude": [
-      "../node_modules"
+      "../node_modules",
+      "**/*.spec.ts"
     ]
   }
   

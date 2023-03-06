@@ -4,6 +4,11 @@ import { Database } from 'fakebase';
 const db = new Database('./data');
 const Expenses = db.table('expenses');
 
+/**
+ * get expenses list using fakebase
+ * @param router 
+ */
+
 export function getList(router: Router) {
     router.get('/expenses', async function (request: Request, response: Response) {
         let data = await Expenses.findAll().catch((error) => {

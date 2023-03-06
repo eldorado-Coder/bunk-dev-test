@@ -11,7 +11,7 @@ interface Expense {
 }
 const Expenses = db.table<Expense>('expenses');
  /**
-  * 
+  * create expense using fakebase
   * @param router 
   */
 export function createExpense(router: express.Router) {

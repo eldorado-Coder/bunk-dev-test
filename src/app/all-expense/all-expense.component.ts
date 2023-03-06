@@ -37,11 +37,14 @@ export class AllExpensesComponent implements OnInit {
             }
         });
     }
+    /**
+     * Show Payouts modal
+     */
     openCalcModal() {
         this.expenseService.calculate(this.allExpensesSource).subscribe((result) => {
             this.dialog.open(CalculateDialogExpenseComponent, {
                 width: '500px',
-                data: { result },
+                data: { result }, // pass the params to modal component
             });
         });
     }

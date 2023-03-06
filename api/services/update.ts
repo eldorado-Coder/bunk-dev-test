@@ -7,16 +7,15 @@ interface Expense {
     id: string;
     name: string;
     amount: number;
-    owes: string;
 }
 
 const Expenses = db.table<Expense>('expenses');
 
 export function updateExpense(router: express.Router) {
     router.put('/expenses/:id', async function (request, response) {
-        const { name, amount, owes } = request.body;
+        const { name, amount } = request.body;
         const { id } = request.params;
-        await Expenses.update({ id: id, name: name, amount: amount, owes: owes }).catch((error) => {
+        await Expenses.update({ id: id, name: name, amount: amount }).catch((error) => {
             throw new Error(error);
         });
         response.json(Expenses.findAll());

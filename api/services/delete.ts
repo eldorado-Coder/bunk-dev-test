@@ -5,6 +5,10 @@ const Expenses = db.table('expenses');
 
 const router = express.Router();
 
+/**
+ * delete expense using fakebase
+ * @param router 
+ */
 export function deleteExpense(router: express.Router) {
     router.delete('/expenses/:id', function (request, response) {
         const { id } = request.params;

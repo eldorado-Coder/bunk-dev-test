@@ -25,6 +25,9 @@ export class AddExpenseComponent implements OnInit {
         });
     }
 
+    /**
+     * Make Create expense Request
+     */
     create() {
         this.addExpenseForm.valid &&
             this.expenseService.create(this.expenseForm).subscribe(() => {
